@@ -1,16 +1,17 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import Search from "./components/Search/Search";
-import Reading from "./components/Reading/Reading.jsx";
-import WantRead from "./components/WantRead/WantRead.jsx";
-import Read from "./components/Read/Read.jsx";
+import Search from "./components/Search.js";
+
 import {get, getAll, update,search} from "./BooksAPI.js";
+import allbooks from "./AllBooks.json";
+import DisplayBooks from "./components/DisplayBooks.js";
+
 
 function App() {
   const [showSearchPage, setShowSearchPage] = useState(false);
   const [category, setCategory] = useState("");
  
-
+  
   useEffect(()=>{console.log( getAll()
     .then((books) => {
       console.log(books);
@@ -19,16 +20,16 @@ function App() {
       console.error('Error fetching books:', error);
     }))},[]);
 
-    const addBook=()=>{
-      const book={title:"To Kill a Mockingbird", 
-      authors: ['Harper Lee'],id:"rstuvxyz2", averageRating: 4,categories:["drama"]};
-      update(book,"wantToRead");
+    const addBook=(book, status)=>{
+      
+      update(book,status);
 
     };
  
     
-    const selectCategory=(event)=>{
-      setCategory(event.target.value);
+  
+    const selectCategory=(status)=>{
+      setCategory(status);
 
     };
 
@@ -47,9 +48,11 @@ function App() {
           </div>
           <div className="list-books-content">
             <div>
-            <Reading selectCategory={selectCategory}/>
-            <WantRead/>
-            <Read/>
+            <DisplayBooks category="wantToRead" selectCategory={selectCategory}/>
+            <DisplayBooks category="currentlyReading" selectCategory={selectCategory}/>
+            <DisplayBooks category="read" selectCategory={selectCategory}/>
+
+
             </div>
           </div>
           <div className="open-search">
