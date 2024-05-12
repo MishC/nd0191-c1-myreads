@@ -1,13 +1,11 @@
-import { useState } from "react";
-import SelectCategory from "./SelectCategory";
-import allbooks from "../AllBooks.json";
+import ChooseCategory from "./ChooseCategory";
 
-const Books = ({category,selectCategory})=>{
+const Books = ({category,selectedBooks,selectCategory})=>{
     //const [selectedBooks,setSelectedBooks] = useState([]);
-   const selectedBooks=allbooks.filter(book=>book.shelf!==category);
+    //selectCategory(category);
    
-   const selectedHTML=selectedBooks.map(book=>  
-   <li>
+   const selectedHTML=selectedBooks.map((book,index)=>  
+   <li key={index}>
     <div className="book">
       <div className="book-top">
         <div
@@ -15,15 +13,15 @@ const Books = ({category,selectCategory})=>{
           style={{
             width: 128,
             height: 193,
-            backgroundImage:book.imageLinks.thumbnails.thumbnail
+            backgroundImage:`url(${book.imageLinks.thumbnails.thumbnail})`
         }}       
         >
-        </div>
-        <SelectCategory selectCategory={selectCategory}/>
+        </div>    
+
+        <ChooseCategory category={category} selectCategory={selectCategory} title={book.title}/></div>
       <div className="book-title">{book.title}</div>
       <div className="book-authors">{book.authors.length>1?book.authors.map((author,i,arr)=>{
         if (i!==arr.length-1){return`${author}, `}else {return `${author}`}}).trim():book.authors[0]}</div>
-    </div>
     </div>
   </li>
    );

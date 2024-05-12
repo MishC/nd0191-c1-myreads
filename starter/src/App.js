@@ -3,15 +3,15 @@ import { useEffect, useState } from "react";
 import Search from "./components/Search.js";
 
 import {get, getAll, update,search} from "./BooksAPI.js";
-import allbooks from "./AllBooks.json";
 import DisplayBooks from "./components/DisplayBooks.js";
 
 
 function App() {
   const [showSearchPage, setShowSearchPage] = useState(false);
-  const [category, setCategory] = useState("");
- 
   
+  
+  
+
   useEffect(()=>{console.log( getAll()
     .then((books) => {
       console.log(books);
@@ -26,12 +26,7 @@ function App() {
 
     };
  
-    
   
-    const selectCategory=(status)=>{
-      setCategory(status);
-
-    };
 
  
   return (
@@ -48,9 +43,11 @@ function App() {
           </div>
           <div className="list-books-content">
             <div>
-            <DisplayBooks category="wantToRead" selectCategory={selectCategory}/>
-            <DisplayBooks category="currentlyReading" selectCategory={selectCategory}/>
-            <DisplayBooks category="read" selectCategory={selectCategory}/>
+            <DisplayBooks  category="currentlyReading" />
+            <DisplayBooks  category="wantToRead" />
+            <DisplayBooks  category="read" />
+           {/* <DisplayBooks  category={selectCategory("wantToRead")} selectBook={selectBook} selectedBooks={selectedBooks}/>
+            <DisplayBooks category={selectCategory("Read")} selectBook={selectBook} selectedBooks={selectedBooks}/>*/}
 
 
             </div>

@@ -1,11 +1,12 @@
 import { useState } from "react";
 const ChooseCategory
-=({selectCategory})=>{
+=({category,selectCategory,title})=>{
   const [option, setOption] = useState("");
   const handleChange = (event) => {
+  
   setOption(event.target.value);
-  selectCategory(option);
-  selectCategory("");
+  selectCategory(option,title);
+  
 };
 
 
@@ -13,7 +14,7 @@ const ChooseCategory
   
   return(
 <div className="book-shelf-changer">
-          <select onChange={handleChange}>
+          <select onChange={handleChange} defaultValue={category}>
             <option value="none" disabled>
               Move to...
             </option>
