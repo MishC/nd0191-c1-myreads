@@ -1,7 +1,8 @@
 import { useState } from "react";
-const ChooseCategory
-=({category,selectCategory,title})=>{
+const ChooseCategory=({category,selectCategory,title})=>{
   const [option, setOption] = useState("");
+
+  
   const handleChange = (event) => {
   
   setOption(event.target.value);

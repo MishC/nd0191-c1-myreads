@@ -1,40 +1,28 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import Search from "./components/Search.js";
+import allbooks from "./AllBooks.json";
+import {Routes, Route} from "react-router-dom";
 
-import {get, getAll, update,search} from "./BooksAPI.js";
 import DisplayBooks from "./components/DisplayBooks.js";
 
 
 function App() {
   const [showSearchPage, setShowSearchPage] = useState(false);
+    
   
-  
-  
-
-  useEffect(()=>{console.log( getAll()
-    .then((books) => {
-      console.log(books);
-    })
-    .catch((error) => {
-      console.error('Error fetching books:', error);
-    }))},[]);
-
-    const addBook=(book, status)=>{
-      
-      update(book,status);
-
-    };
- 
-  
+const closeSearch=(value)=>{setShowSearchPage(value)};
 
  
   return (
     <div className="app">
 
       {showSearchPage ? (
-            <Search showSearchPage={showSearchPage} />
-            
+        <Routes> 
+          <Route exact path="/search" element={
+            <Search closeSearch={closeSearch}/>}/>
+
+            </Routes>
 
       ) : (
         <div className="list-books">
@@ -43,12 +31,10 @@ function App() {
           </div>
           <div className="list-books-content">
             <div>
-            <DisplayBooks  category="currentlyReading" />
-            <DisplayBooks  category="wantToRead" />
-            <DisplayBooks  category="read" />
-           {/* <DisplayBooks  category={selectCategory("wantToRead")} selectBook={selectBook} selectedBooks={selectedBooks}/>
-            <DisplayBooks category={selectCategory("Read")} selectBook={selectBook} selectedBooks={selectedBooks}/>*/}
-
+            <DisplayBooks  category="currentlyReading" allbooks={allbooks} />
+            <DisplayBooks  category="wantToRead" allbooks={allbooks}/>
+            <DisplayBooks  category="read" allbooks={allbooks} />
+        
 
             </div>
           </div>

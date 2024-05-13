@@ -1,12 +1,23 @@
-import {useState} from "react";
-const Search=({showSearchPage})=>{
-const [searchPage,setSearchPage]=useState(showSearchPage);
-return (
+import {useEffect, useState} from "react";
+import { search } from "../BooksAPI";
+import DisplayBooks from "./DisplayBooks";
+
+
+
+const Search=({closeSearch,searchCategory})=>{
+
+const [searchedBooks,setsearchedBooks]=useState([]);
+
+const searchBooks=()  =>{};  
+
+const handleChange=(e)=>{
+    search(e.target.value).then(data=>setsearchedBooks(data))};
+return(
 <div className="search-books">
 <div className="search-books-bar">
   <a
     className="close-search"
-    onClick={() => setSearchPage(!showSearchPage)}
+    onClick={()=>closeSearch(false)}
   >
     Close
   </a>
@@ -14,11 +25,16 @@ return (
     <input
       type="text"
       placeholder="Search by title, author, or ISBN"
+      onChange={handleChange}
     />
   </div>
 </div>
 <div className="search-books-results">
-  <ol className="books-grid"></ol>
+    {searchedBooks.length>1?
+  <div>
+   <DisplayBooks category="" selectedBooks={searchedBooks} />
+
+  </div>:<div></div>}
 </div>
 </div>)}
 export default Search;

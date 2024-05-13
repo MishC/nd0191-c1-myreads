@@ -1,9 +1,7 @@
 import ChooseCategory from "./ChooseCategory";
 
 const Books = ({category,selectedBooks,selectCategory})=>{
-    //const [selectedBooks,setSelectedBooks] = useState([]);
-    //selectCategory(category);
-   
+    
    const selectedHTML=selectedBooks.map((book,index)=>  
    <li key={index}>
     <div className="book">
