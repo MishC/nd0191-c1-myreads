@@ -10,9 +10,13 @@ const [searchedBooks,setSearchedBooks]=useState([]);
 
  
 
-const handleChange=(e)=>{
-    setInputValue(e.target.value);
-    search(inputValue).then(data=>setSearchedBooks(data))};
+const handleChange = async (e) => {
+    const newValue = e.target.value;
+    setInputValue(newValue);
+    const data = await search(newValue);
+    setSearchedBooks(data);
+    console.log(searchedBooks);
+  };
 
 return(
 <div className="search-books">
@@ -32,11 +36,11 @@ return(
   </div>
 </div>
 <div className="search-books-results">
-    {searchedBooks.length>1?
+   {searchedBooks.length>0?
   <div>
-   <DisplayBooks category="" selectedBooks={searchedBooks} />
+   <DisplayBooks category="" allbooks={searchedBooks} />
 
-  </div>:<div></div>}
+</div>:<div></div>}
 </div>
 </div>)}
 export default Search;
