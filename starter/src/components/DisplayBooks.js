@@ -32,11 +32,11 @@ const DisplayBooks=({category,allbooks})=>{
     
 return (    <div className="bookshelf">
                 <h2 className="bookshelf-title">{category}</h2>
-                <div className="bookshelf-books">
+                <div className="bookshelf-books">{allbooks.length>1?
                   <ol className="books-grid">
-       
+                              
                  <Books  category ={status} selectedBooks={category.length>2?allbooks.filter(book=>book.shelf===category):allbooks} selectCategory={selectCategory} />
-                  </ol>
+                  </ol>:<ol className="books-grid"></ol>}
                 </div>
               </div>)
 

@@ -13,6 +13,7 @@ function App() {
   
 const closeSearch=(value)=>{setShowSearchPage(value)};
 
+
  
   return (
     <div className="app">

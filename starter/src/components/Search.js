@@ -6,14 +6,14 @@ import { Link } from "react-router-dom";
 
 const Search=({closeSearch})=>{
 const [inputValue, setInputValue]=useState([]);
-const [searchedBooks,setsearchedBooks]=useState([]);
+const [searchedBooks,setSearchedBooks]=useState([]);
 
  
 
 const handleChange=(e)=>{
-    setInputValue(e.target.value);}
-const searchBooks=()  =>{
-    search(inputValue).then(data=>setsearchedBooks(data))};
+    setInputValue(e.target.value);
+    search(inputValue).then(data=>setSearchedBooks(data))};
+
 return(
 <div className="search-books">
 <div className="search-books-bar">
