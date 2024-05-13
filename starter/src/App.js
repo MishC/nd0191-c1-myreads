@@ -2,7 +2,7 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import Search from "./components/Search.js";
 import allbooks from "./AllBooks.json";
-import {Routes, Route} from "react-router-dom";
+import {Link,Routes, Route} from "react-router-dom";
 
 import DisplayBooks from "./components/DisplayBooks.js";
 
@@ -39,7 +39,8 @@ const closeSearch=(value)=>{setShowSearchPage(value)};
             </div>
           </div>
           <div className="open-search">
-            <a onClick={() => setShowSearchPage(!showSearchPage)}>Add a book</a>
+            <Link to="/search">
+            <a onClick={() => setShowSearchPage(!showSearchPage)}>Add a book</a></Link>
           </div>
         </div>
       )}
