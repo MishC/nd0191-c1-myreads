@@ -39,8 +39,8 @@ const closeSearch=(value)=>{setShowSearchPage(value)};
             </div>
           </div>
           <div className="open-search">
-            <Link to="/search">
-            <a onClick={() => setShowSearchPage(!showSearchPage)}>Add a book</a></Link>
+            <Link to="/search"
+        onClick={() => setShowSearchPage(!showSearchPage)}>Add a book</Link>
           </div>
         </div>
       )}

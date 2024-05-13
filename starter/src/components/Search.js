@@ -1,26 +1,28 @@
 import {useEffect, useState} from "react";
 import { search } from "../BooksAPI";
 import DisplayBooks from "./DisplayBooks";
+import { Link } from "react-router-dom";
 
 
-
-const Search=({closeSearch,searchCategory})=>{
-
+const Search=({closeSearch})=>{
+const [inputValue, setInputValue]=useState([]);
 const [searchedBooks,setsearchedBooks]=useState([]);
 
-const searchBooks=()  =>{};  
+ 
 
 const handleChange=(e)=>{
-    search(e.target.value).then(data=>setsearchedBooks(data))};
+    setInputValue(e.target.value);}
+const searchBooks=()  =>{
+    search(inputValue).then(data=>setsearchedBooks(data))};
 return(
 <div className="search-books">
 <div className="search-books-bar">
-  <a
+    <Link to="/"
     className="close-search"
     onClick={()=>closeSearch(false)}
   >
     Close
-  </a>
+  </Link>
   <div className="search-books-input-wrapper">
     <input
       type="text"

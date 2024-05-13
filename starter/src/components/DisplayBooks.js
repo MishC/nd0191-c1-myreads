@@ -1,11 +1,11 @@
 import { useState,useEffect } from "react";
 import Books from "./Books";
-import {get, getAll, update,search, addBook} from "../BooksAPI.js";
+//import {get, getAll, update,search, addBook} from "../BooksAPI.js";
 
 
 const DisplayBooks=({category,allbooks})=>{
     const [status, setStatus] = useState(category);
-    const [isLoading, setIsLoading] = useState(false);
+    //const [isLoading, setIsLoading] = useState(false);
 
 
     /*useEffect(() => {
@@ -35,7 +35,7 @@ return (    <div className="bookshelf">
                 <div className="bookshelf-books">
                   <ol className="books-grid">
        
-                 <Books  category ={status} selectedBooks={allbooks.filter(book=>book.shelf===category)} selectCategory={selectCategory} />
+                 <Books  category ={status} selectedBooks={category.length>2?allbooks.filter(book=>book.shelf===category):allbooks} selectCategory={selectCategory} />
                   </ol>
                 </div>
               </div>)
