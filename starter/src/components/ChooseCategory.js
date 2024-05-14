@@ -1,13 +1,10 @@
 import { useState } from "react";
-const ChooseCategory=({category,selectCategory,title})=>{
-  const [option, setOption] = useState("");
+const ChooseCategory=({selectCategory,id})=>{
 
-  
-  const handleChange = (event) => {
-  
-  setOption(event.target.value);
-  selectCategory(option,title);
-  
+
+  const handleChange = (e) => {
+   // setOption(e.target.value);
+ selectCategory(e.target.value,id);
 };
 
 
@@ -15,16 +12,12 @@ const ChooseCategory=({category,selectCategory,title})=>{
   
   return(
 <div className="book-shelf-changer">
-          <select onChange={handleChange} defaultValue={category}>
-            <option value="none" disabled>
-              Move to...
-            </option>
-            <option value="currentlyReading">
-              Currently Reading
-            </option>
+          <select onChange={handleChange} >
+      
+            <option value="currentlyReading">Currently Reading</option>
             <option value="wantToRead">Want to Read</option>
             <option value="read">Read</option>
-            <option value="none">None</option>
+            <option value="none" disabled>None</option>
           </select>
         </div>)
 
