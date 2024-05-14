@@ -1,10 +1,10 @@
-import { useState,useEffect } from "react";
+import { useState} from "react";
 import Books from "./Books";
 //import {get, getAll, update,search, addBook} from "../BooksAPI.js";
 
 
 const DisplayBooks=({category,allbooks, selectCategory})=>{
-   
+   console.log(allbooks);
 
 return (    <div className="bookshelf">
                 <h2 className="bookshelf-title">{category}</h2>
