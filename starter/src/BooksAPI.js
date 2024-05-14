@@ -41,13 +41,5 @@ export const search = (query, maxResults) =>
     .then((res) => res.json())
     .then((data) => data.books);
 
-    export const addBook = (book) => {
-      fetch(`${api}/books`, {
-        method: "POST",
-        headers: {
-          ...headers,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(book),
-      }).then((res) => res.json());
-    };
+    
+    

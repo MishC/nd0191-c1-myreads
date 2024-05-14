@@ -13,12 +13,16 @@ const [searchedBooks,setSearchedBooks]=useState([]);
  
 
 const handleChange = async (e) => {
-    const newValue = e.target.value;
-    setInputValue(newValue);
-    const data = await search(newValue);
-    setSearchedBooks(data);
-    console.log(searchedBooks);
-  };
+  const newValue = e.target.value;
+  setInputValue(newValue);
+  if (newValue.trim() !== "") { 
+      const data = await search(newValue);
+      setSearchedBooks(data || []); 
+  } else {
+      setSearchedBooks([]); 
+  }
+};
+
 
 return(
 <div className="search-books">
@@ -35,14 +39,15 @@ return(
       onChange={handleChange}
     />
   </div>
-</div>
+</div> 
+{(searchedBooks[0] && searchedBooks.length > 0 && Array.isArray(searchedBooks))?
 <div className="search-books-results">
-   {searchedBooks.length>0?
+  
   <div>
    <DisplayBooks category="" allbooks={searchedBooks} selectCategory={selectCategory}/>
 
-</div>:<div>{}</div>}
-</div>
+</div></div>:<div>{}</div>
+}
 </div>)}
 Search.propTypes = {
     selectCategory: PropTypes.func.isRequired,

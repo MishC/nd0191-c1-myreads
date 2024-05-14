@@ -1,24 +1,18 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import Search from "./components/Search.js";
-import {Link,Routes, Route,useNavigate} from "react-router-dom";
-import {getAll,update,addBook} from "./BooksAPI.js";
+import {Link,Routes, Route} from "react-router-dom";
+import {getAll,update} from "./BooksAPI.js";
 import Home from "./components/Home.js";
 
 
 function App() {
-  const [showSearchPage, setShowSearchPage] = useState(false);
-  const [status, setStatus] = useState("currentlyReading");
-  const [allbooks, setAllbooks]=useState([]);
-
-    
+const [allbooks, setAllbooks]=useState([]);  
 const getBooks =async()=>{const books=await getAll();setAllbooks([...books]) };
 
-//const updateBook=async(book,shelf)=>{await update(book,shelf);}; //setAllbooks([book,...allbooks]) 
-useEffect(async()=>{await getBooks();   },[]);
+useEffect(()=>{ getBooks();   },[]);
 
 const selectCategory=async (status,book)=>{
- setStatus(status);
 
   if (!status || !book.id) {
     console.error('Status and ID are required parameters.');
@@ -32,10 +26,6 @@ const selectCategory=async (status,book)=>{
  getBooks();
 }; 
   
-
-
-
- 
   return (
     <div className="app">
 
