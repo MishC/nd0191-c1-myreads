@@ -1,10 +1,8 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import Search from "./components/Search.js";
-//import allBooks from "./AllBooks.json";
 import {Link,Routes, Route,useNavigate} from "react-router-dom";
 import {getAll,update,addBook} from "./BooksAPI.js";
-//import DisplayBooks from "./components/DisplayBooks.js";
 import Home from "./components/Home.js";
 
 
@@ -12,14 +10,11 @@ function App() {
   const [showSearchPage, setShowSearchPage] = useState(false);
   const [status, setStatus] = useState("currentlyReading");
   const [allbooks, setAllbooks]=useState([]);
-  //const [updatedBook,setUpdatedBook]=useState(null);
-  //const [bookID,setBookId]=useState(null);
 
-  
     
 const getBooks =async()=>{const books=await getAll();setAllbooks([...books]) };
 
-//const updateBook=async(book,shelf)=>{await update(book,shelf); setAllbooks([book,...allbooks]) };
+//const updateBook=async(book,shelf)=>{await update(book,shelf);}; //setAllbooks([book,...allbooks]) 
 useEffect(async()=>{await getBooks();   },[]);
 
 const selectCategory=async (status,book)=>{
@@ -31,14 +26,10 @@ const selectCategory=async (status,book)=>{
   };
   console.log("You have ID:",book.id);
 
-
  await update(book,status); 
  
- 
 
-
-
-await getBooks();
+ getBooks();
 }; 
   
 
