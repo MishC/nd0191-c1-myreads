@@ -4,7 +4,6 @@ import Books from "./Books";
 
 
 const DisplayBooks=({category,allbooks, selectCategory})=>{
-   console.log(allbooks);
 
 return (    <div className="bookshelf">
                 <h2 className="bookshelf-title">{category}</h2>

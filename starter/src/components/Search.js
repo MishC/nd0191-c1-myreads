@@ -41,7 +41,7 @@ return(
   <div>
    <DisplayBooks category="" allbooks={searchedBooks} selectCategory={selectCategory}/>
 
-</div>:<div>No book match your criteria.</div>}
+</div>:<div>{}</div>}
 </div>
 </div>)}
 Search.propTypes = {

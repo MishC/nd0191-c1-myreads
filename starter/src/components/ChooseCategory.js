@@ -5,7 +5,6 @@ const ChooseCategory=({selectCategory,book})=>{
 
 
   const handleChange = (e) => {
-   //console.log(e.target.value, "this:",id)
  selectCategory(e.target.value,book);
 };
 

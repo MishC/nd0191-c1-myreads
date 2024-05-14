@@ -12,8 +12,8 @@ function App() {
   const [showSearchPage, setShowSearchPage] = useState(false);
   const [status, setStatus] = useState("currentlyReading");
   const [allbooks, setAllbooks]=useState([]);
-  const [updatedBook,setUpdatedBook]=useState(null);
-  const [bookID,setBookId]=useState(null);
+  //const [updatedBook,setUpdatedBook]=useState(null);
+  //const [bookID,setBookId]=useState(null);
 
   
     
@@ -23,18 +23,16 @@ const getBooks =async()=>{const books=await getAll();setAllbooks([...books]) };
 useEffect(async()=>{await getBooks();   },[]);
 
 const selectCategory=async (status,book)=>{
- //setBookId(id);
  setStatus(status);
 
-  if (!status || !book) {
+  if (!status || !book.id) {
     console.error('Status and ID are required parameters.');
     return;
   };
   console.log("You have ID:",book.id);
 
- //setUpdatedBook( allbooks.filter(book => book.id === id));}
-//if (updatedBook!==null&&status){
- await update(book,status); //}else{console.log("Nothing to update")};
+
+ await update(book,status); 
  
  
 
