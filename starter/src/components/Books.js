@@ -1,8 +1,7 @@
 import ChooseCategory from "./ChooseCategory";
-
-const Books = ({category,selectedBooks,selectCategory})=>{
-    
+const Books = ({selectedBooks,selectCategory})=>{
    const selectedHTML=selectedBooks.map((book,index)=>  
+  
    <li key={index}>
     <div className="book">
       <div className="book-top">
@@ -15,8 +14,10 @@ const Books = ({category,selectedBooks,selectCategory})=>{
         }}       
         >
         </div>    
-
-        <ChooseCategory category={category} selectCategory={selectCategory} title={book.title}/></div>
+{book.id&&
+        <ChooseCategory  selectCategory={selectCategory} id={book.id}/>}
+        
+        </div>
       <div className="book-title">{book.title}</div>
       <div className="book-authors">{book.authors}</div>
     </div>
