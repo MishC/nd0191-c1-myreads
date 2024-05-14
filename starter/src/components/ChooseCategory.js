@@ -1,4 +1,6 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
+
 const ChooseCategory=({selectCategory,id})=>{
 
 
@@ -22,4 +24,8 @@ const ChooseCategory=({selectCategory,id})=>{
         </div>)
 
 }
+ChooseCategory.propTypes = {
+  id: PropTypes.string.isRequired,
+  selectCategory: PropTypes.func.isRequired,
+};
 export default ChooseCategory
