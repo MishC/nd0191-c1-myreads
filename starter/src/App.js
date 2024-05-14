@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Search from "./components/Search.js";
 //import allBooks from "./AllBooks.json";
 import {Link,Routes, Route,useNavigate} from "react-router-dom";
-import {getAll,update} from "./BooksAPI.js";
+import {getAll,update,addBook} from "./BooksAPI.js";
 //import DisplayBooks from "./components/DisplayBooks.js";
 import Home from "./components/Home.js";
 
@@ -12,8 +12,8 @@ function App() {
   const [showSearchPage, setShowSearchPage] = useState(false);
   const [status, setStatus] = useState("currentlyReading");
   const [allbooks, setAllbooks]=useState([]);
-  const [updatedBook,setUpdatedBook]=useState({});
-  const [bookId, setBookId]=useState("");
+  const [updatedBook,setUpdatedBook]=useState();
+  //const [bookId, setBookId]=useState("");
   //const [isLoading, setIsLoading] = useState(false);
   
  
@@ -26,14 +26,14 @@ const getBooks =async()=>{const books=await getAll();setAllbooks([...books]) };
 useEffect(async()=>{await getBooks();   },[]);
 
 const selectCategory=async (status,id)=>{
- setBookId(id);
- setStatus(status);
+ //setBookId(id);
+ //setStatus(status);
 
   if (!status || !id) {
     console.error('Status and ID are required parameters.');
     return;
   };
- setUpdatedBook( allbooks.filter(book => book.id&&book.id === bookId));
+ setUpdatedBook( allbooks.filter(book => book.id&&book.id === id));
   
   await update(updatedBook[0],status) ;
 
@@ -41,7 +41,6 @@ const selectCategory=async (status,id)=>{
 await getBooks();
 }; 
   
-const closeSearch=(value)=>{setShowSearchPage(value)};
 
 
 
@@ -52,16 +51,15 @@ const closeSearch=(value)=>{setShowSearchPage(value)};
       
         <Routes> 
           <Route exact path="/search" element={
-            <Search closeSearch={closeSearch}/>}/>
+            <Search  selectCategory={selectCategory}/>}/>
             <Route  exact path="/"
             element={<Home  allbooks={allbooks} selectCategory={selectCategory} />}/>
-            </Routes>
+        </Routes>
 
      
         
             <div className="open-search">
-            <Link to="/search"
-        onClick={() => setShowSearchPage(!showSearchPage)}>Add a book</Link>
+            <Link to="/search">Add a book</Link>
           </div>
           </div>
   

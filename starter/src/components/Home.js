@@ -1,5 +1,4 @@
 import DisplayBooks from "./DisplayBooks";
-import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 const Home=({allbooks, selectCategory})=>{
     return(
@@ -16,7 +15,7 @@ const Home=({allbooks, selectCategory})=>{
 
     </div>
     </div>
-       
+          
         </div>)
 
 

@@ -1,10 +1,12 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import { search } from "../BooksAPI";
 import DisplayBooks from "./DisplayBooks";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 
-const Search=({closeSearch})=>{
+
+const Search=({selectCategory})=>{
 const [inputValue, setInputValue]=useState([]);
 const [searchedBooks,setSearchedBooks]=useState([]);
 
@@ -23,7 +25,6 @@ return(
 <div className="search-books-bar">
     <Link to="/"
     className="close-search"
-    onClick={()=>closeSearch(false)}
   >
     Close
   </Link>
@@ -38,9 +39,12 @@ return(
 <div className="search-books-results">
    {searchedBooks.length>0?
   <div>
-   <DisplayBooks category="" allbooks={searchedBooks} />
+   <DisplayBooks category="" allbooks={searchedBooks} selectCategory={selectCategory}/>
 
-</div>:<div></div>}
+</div>:<div>No book match your criteria.</div>}
 </div>
 </div>)}
+Search.propTypes = {
+    selectCategory: PropTypes.func.isRequired,
+  };
 export default Search;

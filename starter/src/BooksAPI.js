@@ -46,7 +46,8 @@ export const search = (query, maxResults) =>
         method: "POST",
         headers: {
           ...headers,
-          "Content-Type": "application/json"
-          }});
-        };
-  
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(book),
+      }).then((res) => res.json());
+    };
