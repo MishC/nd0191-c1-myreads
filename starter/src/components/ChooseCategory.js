@@ -1,28 +1,30 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-const ChooseCategory=({selectCategory,book})=>{
-
+const ChooseCategory = ({ selectCategory, book }) => {
+  const [selectedCategory, setSelectedCategory] = useState(book.shelf || "none");
 
   const handleChange = (e) => {
- selectCategory(e.target.value,book);
+    const newCategory = e.target.value;
+    setSelectedCategory(newCategory);
+    selectCategory(newCategory, book);
+  };
+
+  return (
+    <div className="book-shelf-changer">
+      <select value={selectedCategory} onChange={handleChange}>
+        <option value="currentlyReading">Currently Reading</option>
+        <option value="wantToRead">Want to Read</option>
+        <option value="read">Read</option>
+        <option value="none" disabled>None</option>
+      </select>
+    </div>
+  );
 };
 
-
-  return(
-<div className="book-shelf-changer">
-          <select onChange={handleChange} onClick={()=>{}}>
-      
-            <option value="currentlyReading">Currently Reading</option>
-            <option value="wantToRead">Want to Read</option>
-            <option value="read">Read</option>
-            <option value="none" disabled>None</option>
-          </select>
-        </div>)
-
-}
 ChooseCategory.propTypes = {
-  id: PropTypes.string.isRequired,
+  book: PropTypes.object.isRequired,
   selectCategory: PropTypes.func.isRequired,
 };
-export default ChooseCategory
+
+export default ChooseCategory;
