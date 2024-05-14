@@ -5,6 +5,7 @@ const Books = ({selectedBooks,selectCategory})=>{
    <li key={index}>
     <div className="book">
       <div className="book-top">
+        {book.imageLinks.thumbnail?
         <div
           className="book-cover"
           style={{
@@ -13,9 +14,12 @@ const Books = ({selectedBooks,selectCategory})=>{
             backgroundImage:`url(${book.imageLinks.thumbnail})`
         }}       
         >
-        </div>    
+        </div>:<div style={{
+            width: 128,
+            height: 193,
+            backgroundColor:"#fff" }}></div>    }
 {book.id&&
-        <ChooseCategory  selectCategory={selectCategory} id={book.id}/>}
+        <ChooseCategory  selectCategory={selectCategory} book={book}/>}
         
         </div>
       <div className="book-title">{book.title}</div>

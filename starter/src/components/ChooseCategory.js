@@ -1,20 +1,18 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-const ChooseCategory=({selectCategory,id})=>{
+const ChooseCategory=({selectCategory,book})=>{
 
 
   const handleChange = (e) => {
-   // setOption(e.target.value);
- selectCategory(e.target.value,id);
+   //console.log(e.target.value, "this:",id)
+ selectCategory(e.target.value,book);
 };
 
 
-  
-  
   return(
 <div className="book-shelf-changer">
-          <select onChange={handleChange} >
+          <select onChange={handleChange} onClick={()=>{}}>
       
             <option value="currentlyReading">Currently Reading</option>
             <option value="wantToRead">Want to Read</option>
