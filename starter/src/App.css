@@ -162,6 +162,7 @@ body,
   height: 100%;
   opacity: 0;
   cursor: pointer;
+  padding:10%;
 }
 
 /* book cover */
