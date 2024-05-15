@@ -5,25 +5,34 @@ const Books = ({selectedBooks,selectCategory})=>{
    <li key={index}>
     <div className="book">
       <div className="book-top">
-        {book.imageLinks.thumbnail?
-        <div
-          className="book-cover"
-          style={{
-            width: 128,
-            height: 193,
-            backgroundImage:`url(${book.imageLinks.thumbnail})`
-        }}       
-        >
-        </div>:<div style={{
-            width: 128,
-            height: 193,
-            backgroundColor:"#fff" }}></div>    }
+      {  book.imageLinks && typeof book.imageLinks.thumbnail !== "undefined" ? (
+
+    <div
+      className="book-cover"
+      style={{
+        width: 128,
+        height: 193,
+        backgroundImage: `url(${book.imageLinks.thumbnail})`
+      }}
+    ></div>
+  ) : (
+    <div
+      style={{
+        width: 128,
+        height: 193,
+        backgroundColor: 'white', 
+        border: '1px solid black', 
+       
+      }}
+    ></div>
+  )
+}
 {book.id&&
         <ChooseCategory  selectCategory={selectCategory} book={book}/>}
         
         </div>
-      <div className="book-title">{book.title}</div>
-      <div className="book-authors">{book.authors}</div>
+      <div className="book-title">{typeof book.title!=="undefined"?book.title:""}</div>
+      <div className="book-authors">{typeof book.authors!=="undefined"?book.authors:""}</div>
     </div>
   </li>
    );
