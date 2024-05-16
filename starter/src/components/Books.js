@@ -1,5 +1,7 @@
 import ChooseCategory from "./ChooseCategory";
+import PropTypes from "prop-types";
 const Books = ({selectedBooks,selectCategory})=>{
+
    const selectedHTML=selectedBooks.map((book,index)=>  
   
    <li key={index}>
@@ -37,5 +39,9 @@ const Books = ({selectedBooks,selectCategory})=>{
   </li>
    );
   return selectedHTML;
+};
+Book.propTypes = {
+  selectCategory: PropTypes.func.isRequired,
+  selectedBooks: PropTypes.array.isRequired,
 };
   export default Books;
