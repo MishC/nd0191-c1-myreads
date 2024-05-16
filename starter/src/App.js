@@ -8,7 +8,10 @@ import Home from "./components/Home.js";
 
 function App() {
 const [allbooks, setAllbooks]=useState([]);  
-const getBooks =async()=>{const books=await getAll();setAllbooks([...books]) };
+const getBooks =async()=>{
+  try{
+  const books=await getAll();setAllbooks([...books]) }
+catch(error){console.error("Error with connection: ",{error})}};
 
 useEffect(()=>{ getBooks();   },[]);
 
@@ -32,7 +35,7 @@ const selectCategory=async (status,book)=>{
       
         <Routes> 
           <Route exact path="/search" element={
-            <Search  selectCategory={selectCategory}/>}/>
+            <Search  selectCategory={selectCategory} allbooks={allbooks}/>}/>
             <Route  exact path="/"
             element={<Home  allbooks={allbooks} selectCategory={selectCategory} />}/>
         </Routes>
