@@ -1,6 +1,5 @@
 import Books from "./Books";
 
-
 const DisplayBooks=({category,allbooks, selectCategory})=>{
 const separateCamelCase=(str)=> {
    
@@ -12,7 +11,7 @@ return (    <div className="bookshelf">
                 <h2 className="bookshelf-title">{category!=="none"?separateCamelCase(category):"Searched Books"}</h2>
                 <div className="bookshelf-books">{(allbooks!=="undefined"&&allbooks!==null&&Array.isArray(allbooks))?
                   <ol className="books-grid">
-                              
+                    
                  <Books  selectedBooks={allbooks} selectCategory={selectCategory} />
                   </ol>:<ol className="books-grid"></ol>}
                 </div>
