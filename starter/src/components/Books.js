@@ -40,7 +40,7 @@ const Books = ({selectedBooks,selectCategory})=>{
    );
   return selectedHTML;
 };
-Book.propTypes = {
+Books.propTypes = {
   selectCategory: PropTypes.func.isRequired,
   selectedBooks: PropTypes.array.isRequired,
 };
