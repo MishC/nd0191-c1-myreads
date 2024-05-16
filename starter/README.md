@@ -57,12 +57,15 @@ search(query);
 
 The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md). That list of terms are the _only_ terms that will work with the backend, so don't be surprised if your searches for Basket Weaving or Bubble Wrap don't come back with any results.
 
-## Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). You can find more information on how to perform common tasks [here](https://github.com/facebook/create-react-app/blob/main/packages/cra-template/template/README.md).
+## Built With
 
-## Acknowledgements
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) which includes webpack.
 
-This repository is the starter code for _all_ Udacity students. 
+## Licence
+
+Udacity
+
+## Contribution
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
