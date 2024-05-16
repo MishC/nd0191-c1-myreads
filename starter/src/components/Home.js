@@ -8,7 +8,6 @@ const Home=({allbooks, selectCategory})=>{
     return(
         <div className="list-books">
          {allbooks.some(book=>book.shelf==="none")? <div >{}
-           
           </div>: <div className="list-books-title"><h1>"MyReads"</h1></div>}
           <div className="list-books-content">
     <div className="Home">
@@ -18,14 +17,12 @@ const Home=({allbooks, selectCategory})=>{
         <div key={index}>
     <DisplayBooks  category={category} allbooks={allbooks.filter(book=>book.shelf===category)} selectCategory={selectCategory} />
    </div> :<div key={index}>{}</div>)
-        }
-    
+        }   
 
     </div>
     </div>
           
         </div>)
-
 
 }
 
