@@ -1,6 +1,9 @@
+import { useState } from "react";
 import DisplayBooks from "./DisplayBooks";
 import PropTypes from "prop-types";
+
 const Home=({allbooks, selectCategory})=>{
+  const [categories,setCategories]=useState(["currentlyReading","wantToRead","read","none"]);
     return(
         <div className="list-books">
           <div className="list-books-title">
@@ -8,10 +11,14 @@ const Home=({allbooks, selectCategory})=>{
           </div>
           <div className="list-books-content">
     <div className="Home">
-        
-    <DisplayBooks  category="currentlyReading" allbooks={allbooks} selectCategory={selectCategory} />
-    <DisplayBooks  category="wantToRead" allbooks={allbooks} selectCategory={selectCategory}/>
-    <DisplayBooks  category="read" allbooks={allbooks} selectCategory={selectCategory}/>
+        {
+        categories.map((category,index)=>
+        allbooks.filter(book=>book.shelf===category).length>=1?
+        <div key={index}>
+    <DisplayBooks  category={category} allbooks={allbooks.filter(book=>book.shelf===category)} selectCategory={selectCategory} />
+   </div> :<div key={index}>{}</div>)
+        }
+    
 
     </div>
     </div>
