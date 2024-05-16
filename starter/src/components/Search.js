@@ -66,7 +66,7 @@ return(
     />
   </div>
 </div> 
-{(searchedBooks[0] && searchedBooks.length > 0 && Array.isArray(searchedBooks))?
+{(searchedBooks[0] || searchedBooks.length > 0 || Array.isArray(searchedBooks))?
 
 <div className="search-books-results">
   
