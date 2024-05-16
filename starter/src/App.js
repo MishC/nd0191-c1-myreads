@@ -4,10 +4,12 @@ import Search from "./components/Search.js";
 import {Link,Routes, Route} from "react-router-dom";
 import {getAll,update} from "./BooksAPI.js";
 import Home from "./components/Home.js";
+import Details from "./components/Details.js";
 
 
 function App() {
 const [allbooks, setAllbooks]=useState([]);  
+//const [details, setDetails]=useState(false);
 const getBooks =async()=>{
   try{
   const books=await getAll();setAllbooks([...books]) }
@@ -38,6 +40,8 @@ const selectCategory=async (status,book)=>{
             <Search  selectCategory={selectCategory} allbooks={allbooks}/>}/>
             <Route  exact path="/"
             element={<Home  allbooks={allbooks} selectCategory={selectCategory} />}/>
+            <Route exact path="/details" element={
+            <Details />}/>
         </Routes>
 
      
@@ -45,6 +49,7 @@ const selectCategory=async (status,book)=>{
             <div className="open-search">
             <Link to="/search">Add a book</Link>
           </div>
+
           </div>
   
   );
