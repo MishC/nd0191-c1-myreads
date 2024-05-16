@@ -37,7 +37,7 @@ const handleChange = async (e) => {
     if (newValue.trim() !== "") { 
       const data = await search(newValue);
       if (Array.isArray(data)){
-       await fillCategory(data);  }   
+       await fillCategory(data) } ;  
            
   } else {
       setSearchedBooks([]); 
