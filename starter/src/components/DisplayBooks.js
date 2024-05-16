@@ -9,11 +9,11 @@ const separateCamelCase=(str)=> {
               .join(' ');
   }
 return (    <div className="bookshelf">
-                <h2 className="bookshelf-title">{separateCamelCase(category)}</h2>
-                <div className="bookshelf-books">{allbooks.length>1?
+                <h2 className="bookshelf-title">{category!=="none"?separateCamelCase(category):"Searched Books"}</h2>
+                <div className="bookshelf-books">{(allbooks!=="undefined"&&allbooks!==null&&Array.isArray(allbooks))?
                   <ol className="books-grid">
                               
-                 <Books  selectedBooks={category.length>1?allbooks.filter(book=>book.shelf===category):allbooks} selectCategory={selectCategory} />
+                 <Books  selectedBooks={allbooks} selectCategory={selectCategory} />
                   </ol>:<ol className="books-grid"></ol>}
                 </div>
               </div>)
