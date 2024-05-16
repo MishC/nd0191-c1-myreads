@@ -24,7 +24,7 @@ const fillCategory = async (books) => {
 
       setSearchedBooks(results);
   } catch (error) {
-      console.error("An error occurred:", error);
+      console.error("Changing shelf error:", error);
   }
 };
 
