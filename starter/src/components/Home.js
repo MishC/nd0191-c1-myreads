@@ -10,7 +10,7 @@ const Home=({allbooks, selectCategory})=>{
          {allbooks.some(book=>book.shelf==="none")? <div >{}
           </div>: <div className="list-books-title"><h1>"MyReads"</h1></div>}
           <div className="list-books-content">
-    <div className="Home">
+    <div className="Main">
         {
         categories.map((category,index)=>
         allbooks.filter(book=>book.shelf===category).length>=1?
