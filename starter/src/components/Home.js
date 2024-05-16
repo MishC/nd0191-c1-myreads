@@ -8,7 +8,7 @@ const Home=({allbooks, selectCategory})=>{
     return(
         <div className="list-books">
          {allbooks.some(book=>book.shelf==="none")? <div >{}
-          </div>: <div className="list-books-title"><h1>"MyReads"</h1></div>}
+          </div>: <div className="list-books-title"><h1>MyReads</h1></div>}
           <div className="list-books-content">
     <div className="Main">
         {
