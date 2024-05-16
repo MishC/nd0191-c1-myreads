@@ -1,5 +1,4 @@
 import ChooseCategory from "./ChooseCategory";
-import { Link } from "react-router-dom";
 
 import PropTypes from "prop-types";
 
@@ -8,7 +7,7 @@ const Books = ({selectedBooks,selectCategory})=>{
    const selectedHTML=selectedBooks.map((book,index)=>  
   
    <li key={index}>
-    <Link to="/details">
+    
     <div className="book">
       <div className="book-top">
       {  book.imageLinks && typeof book.imageLinks.thumbnail !== "undefined" ? (
@@ -40,7 +39,6 @@ const Books = ({selectedBooks,selectCategory})=>{
       <div className="book-title">{typeof book.title!=="undefined"?book.title:""}</div>
       <div className="book-authors">{typeof book.authors!=="undefined"?book.authors:""}</div>
     </div>
-    </Link>
   </li>
    );
   return selectedHTML;

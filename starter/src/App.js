@@ -9,7 +9,6 @@ import Details from "./components/Details.js";
 
 function App() {
 const [allbooks, setAllbooks]=useState([]);  
-//const [details, setDetails]=useState(false);
 const getBooks =async()=>{
   try{
   const books=await getAll();setAllbooks([...books]) }
@@ -41,7 +40,7 @@ const selectCategory=async (status,book)=>{
             <Route  exact path="/"
             element={<Home  allbooks={allbooks} selectCategory={selectCategory} />}/>
             <Route exact path="/details" element={
-            <Details />}/>
+            <Details/>}/>
         </Routes>
 
      
@@ -49,7 +48,7 @@ const selectCategory=async (status,book)=>{
             <div className="open-search">
             <Link to="/search">Add a book</Link>
           </div>
-
+                 
           </div>
   
   );
