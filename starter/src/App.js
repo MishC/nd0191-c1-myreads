@@ -16,7 +16,7 @@ catch(error){console.error("Error with connection: ",{error})}};
 useEffect(()=>{ getBooks();   },[]);
 
 const selectCategory=async (status,book)=>{
-
+  
   if (!status || !book.id) {
     console.error('Status and ID are required parameters.');
     return;

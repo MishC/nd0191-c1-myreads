@@ -1,6 +1,5 @@
 import {useState} from "react";
 import { search } from "../BooksAPI";
-import DisplayBooks from "./DisplayBooks";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
@@ -11,7 +10,6 @@ import Home from "./Home";
 const Search=({selectCategory,allbooks})=>{
 const [inputValue, setInputValue]=useState([]);
 const [searchedBooks,setSearchedBooks]=useState([]);
-const [myBooks,setMyBooks]=useState([]);
 
 const fillCategory = async (books) => {
   try {

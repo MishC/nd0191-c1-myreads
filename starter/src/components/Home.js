@@ -4,11 +4,12 @@ import PropTypes from "prop-types";
 
 const Home=({allbooks, selectCategory})=>{
   const [categories,setCategories]=useState(["currentlyReading","wantToRead","read","none"]);
+  
     return(
         <div className="list-books">
-          <div className="list-books-title">
-            <h1>MyReads</h1>
-          </div>
+         {allbooks.some(book=>book.shelf==="none")? <div >{}
+           
+          </div>: <div className="list-books-title"><h1>"MyReads"</h1></div>}
           <div className="list-books-content">
     <div className="Home">
         {
