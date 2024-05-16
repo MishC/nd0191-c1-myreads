@@ -7,7 +7,7 @@ const Books = ({selectedBooks,selectCategory})=>{
    <li key={index}>
     <div className="book">
       <div className="book-top">
-      {  book.imageLinks || typeof book.imageLinks.thumbnail !== "undefined" ? (
+      {  book.imageLinks && typeof book.imageLinks.thumbnail !== "undefined" ? (
 
     <div
       className="book-cover"
