@@ -1,5 +1,6 @@
-const Details = () =>{return(<div className="Details">
-
+const Details = ({book}) =>{return(
+<div className="Details">
+<div>{book.title}</div>
 
 
 </div>)};
