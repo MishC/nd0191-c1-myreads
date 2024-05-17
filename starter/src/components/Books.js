@@ -1,5 +1,5 @@
 import ChooseCategory from "./ChooseCategory";
-
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const Books = ({selectedBooks,selectCategory})=>{
@@ -38,6 +38,8 @@ const Books = ({selectedBooks,selectCategory})=>{
         </div>
       <div className="book-title">{typeof book.title!=="undefined"?book.title:""}</div>
       <div className="book-authors">{typeof book.authors!=="undefined"?book.authors:""}</div>
+      <div className="book-link"><Link to="/details">Details</Link></div>
+
     </div>
   </li>
    );
