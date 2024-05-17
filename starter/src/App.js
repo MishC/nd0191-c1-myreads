@@ -1,7 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import Search from "./components/Search.js";
-import {Link,Routes, Route} from "react-router-dom";
+import {Routes, Route} from "react-router-dom";
 import {getAll,update} from "./BooksAPI.js";
 import Home from "./components/Home.js";
 import Details from "./components/Details.js";
@@ -40,15 +40,12 @@ const selectCategory=async (status,book)=>{
             <Route  exact path="/"
             element={<Home  allbooks={allbooks} selectCategory={selectCategory} />}/>
             <Route exact path="/details" element={
-            <Details/>}/>
+            <Details book/>}/>
         </Routes>
 
      
         
-            <div className="open-search">
-            <Link to="/search">Add a book</Link>
-          </div>
-                 
+           
           </div>
   
   );
