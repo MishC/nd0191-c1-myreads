@@ -1,11 +1,17 @@
 import ChooseCategory from "./ChooseCategory";
 import { Link } from "react-router-dom";
+import {useState,useEffect} from "react";
 import PropTypes from "prop-types";
 
-const Books = ({selectedBooks,selectCategory})=>{
+const Books = ({selectedBooks,selectCategory,selectBook})=>{
+const [bookThis, setBookThis] =useState({});
+  
+  const handleLink = (book) => {
+    selectBook(book);
+  };
 
    const selectedHTML=selectedBooks.map((book,index)=>  
-  
+
    <li key={index}>
     
     <div className="book">
@@ -38,7 +44,8 @@ const Books = ({selectedBooks,selectCategory})=>{
         </div>
       <div className="book-title">{typeof book.title!=="undefined"?book.title:""}</div>
       <div className="book-authors">{typeof book.authors!=="undefined"?book.authors:""}</div>
-      <div className="book-link"><Link to="/details">Details</Link></div>
+      <div className="book-link"><Link to="/book" onClick={ ()=>handleLink(book)
+}>Details </Link></div>
 
     </div>
   </li>
@@ -48,5 +55,6 @@ const Books = ({selectedBooks,selectCategory})=>{
 Books.propTypes = {
   selectCategory: PropTypes.func.isRequired,
   selectedBooks: PropTypes.array.isRequired,
+  selectBook:PropTypes.func.isRequired
 };
   export default Books;

@@ -6,7 +6,7 @@ import DisplayBooks from "./DisplayBooks";
 import PropTypes from "prop-types";
 
 
-const Home=({allbooks, selectCategory})=>{
+const Home=({allbooks, selectCategory,selectBook})=>{
   const [categories,setCategories]=useState(["currentlyReading","wantToRead","read","none"]);
   
     return(
@@ -19,7 +19,7 @@ const Home=({allbooks, selectCategory})=>{
         categories.map((category,index)=>
         allbooks.filter(book=>book.shelf===category).length>=1?
         <div key={index}>
-    <DisplayBooks  category={category} allbooks={allbooks.filter(book=>book.shelf===category)} selectCategory={selectCategory} />
+    <DisplayBooks  category={category} allbooks={allbooks.filter(book=>book.shelf===category)} selectCategory={selectCategory} selectBook={selectBook} />
    </div> :<div key={index}>{}</div>)
         }   
 

@@ -6,7 +6,7 @@ import Home from "./Home";
 
 
 
-const Search=({selectCategory,allbooks})=>{
+const Search=({selectCategory,allbooks,selectBook})=>{
 const [inputValue, setInputValue]=useState([]);
 const [searchedBooks,setSearchedBooks]=useState([]);
 
@@ -70,7 +70,7 @@ return(
 <div className="search-books-results">
   
   <div>
-   <Home allbooks={searchedBooks} selectCategory={selectCategory}/>
+   <Home allbooks={searchedBooks} selectCategory={selectCategory} selectBook={selectBook}/>
 
 </div></div>:<div>{}</div>
 }
